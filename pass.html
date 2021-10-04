@@ -19,9 +19,15 @@
 
 <p id="result">This text will be replaced </p>
 
+<div class="container">
+    <img src="i1.jpg" id="myImageId" onclick="newImage()" alt="ant" width="200" height="200">
+
+</div>
+
 <script> 
 let correct = 0;
 let wrong = 0;
+let usingImage = 1;
 
 function processPhrase(){
     secret_phrase = document.getElementById("form1_phrase").value
@@ -37,6 +43,26 @@ function processPhrase(){
         alert("Access denied");
         out.innerHTML = wrong;
     }
+
+}
+
+function newImage(){
+    img_src = document.getElementById("myImageId")
+    switch(usingImage){
+        case 1:
+            img_src.src="i1.jpg";
+            usingImage = 2;
+            break;
+        case 2:
+            img_src.src="i2.jpg";
+            usingImage = 3;
+            break;
+        case 3:
+            img_src.src="i3.jpg";
+            usingImage = 1;
+            break;
+        default:
+    }   
 
 }
 </script>
