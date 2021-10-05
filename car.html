@@ -25,6 +25,16 @@
 
 <p id="result">This text will be replaced </p>
 
+<form>
+    <label for="form1_property">Enter a property </label>
+    <input type ="text" id="form1_property" name="form1_property" min=10 max=50 step=2 value="color"> <br>
+
+    <label for="form1_value">Enter a value </label>
+    <input type ="text" id="form1_value" name="form1_value" autofocus> <br>
+
+    <input type="button" onclick="updateCar()" value="Update the car">
+</form>
+
 <script> 
 let my_car = {};
 
@@ -54,6 +64,17 @@ function orderCar(){
     console.log(my_car);
     out.innerHTML = JSON.stringify(my_car);
 
+}
+
+function updateCar(){
+    property = document.getElementById("form1_property").value;
+    value = document.getElementById("form1_value").value;
+
+    out = document.getElementById("result")
+
+    my_car[property] = value;
+    console.log(my_car);
+    out.innerHTML = JSON.stringify(my_car);
 }
 </script>
 
