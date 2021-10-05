@@ -15,8 +15,30 @@
     <input type="button" onclick="powers()" value="Compute">
 </form>
 
-
 <p id="result">This text will be replaced </p>
+
+<form>
+    <input type="radio" onclick="processRadio()" id="plus" name="operation" value="plus"   
+      checked >
+    <label for="plus">+</label></br>
+  
+    <input type="radio" onclick="processRadio()" id="minus" name="operation" 
+       value="minus">
+    <label for="minus">-</label></br>
+  
+    <input type="radio" onclick="processRadio()" id="times" name="operation"   
+       value="times">
+    <label for="times">*</label></br>
+
+    <input type="radio" onclick="processRadio()" id="divide" name="operation"   
+       value="divide">
+    <label for="divide">/</label></br>
+
+</form>
+
+<p id="result1">This text will be replaced </p>
+
+
 
 <script> 
 let result = " ";
@@ -34,6 +56,27 @@ function powers (){
     out.innerHTML = "Powers of " + base + " are: " + result;
 
 
+}
+
+function processRadio(){
+    base = document.getElementById("form1_base").value
+    exponent = document.getElementById("form1_exponent").value
+
+    out = document.getElementById("result1")
+
+    if(document.getElementById("plus").checked){
+        result = parseInt(base) + parseInt (exponent);
+    }else if(document.getElementById("minus").checked){
+        result = base - exponent;
+    }else if(document.getElementById("times").checked){
+        result = base * exponent;
+    }else if(document.getElementById("divide")){
+        result = base / exponent;
+    }else{
+        result = " ";
+    }
+
+    out.innerHTML = "Result is " + result;
 }
 </script>
 
